@@ -1,0 +1,21 @@
+<!-- hoteles.component.html -->
+<div class="hoteles-container">
+  <h1>Hoteles Disponibles</h1>
+
+  <!-- Si no hay hoteles disponibles, mostrar un mensaje -->
+  <div *ngIf="hoteles.length === 0">
+    <p>No se encontraron hoteles disponibles.</p>
+  </div>
+
+  <!-- Mostrar la lista de hoteles -->
+  <div *ngIf="hoteles.length > 0">
+    <ul class="hotels-list">
+      <li *ngFor="let hotel of hoteles" class="hotel-card">
+        <h3>{{ hotel.name }}</h3>
+        <p><strong>Precio:</strong> ${{ hotel.price }} {{ hotel.currency }}</p>
+        <p><strong>Ubicación:</strong> {{ hotel.location.address }}</p>
+        <a [href]="hotel.mapUrl" target="_blank">Ver en el mapa</a>
+      </li>
+    </ul>
+  </div>
+</div>

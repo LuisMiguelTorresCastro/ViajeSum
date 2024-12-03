@@ -1,0 +1,34 @@
+<h1>Restaurantes</h1>
+<mat-divider></mat-divider>
+
+<div class="card-grid">
+  <div *ngFor="let restaurante of restaurantes" class="card-item">
+    <mat-card class="restaurant-card">
+      <mat-card-header>
+        <mat-card-title *ngIf="restaurante.nombreRestaurante; else invalidData">
+          {{ restaurante.nombreRestaurante }}
+        </mat-card-title>
+      </mat-card-header>
+
+      <div *ngIf="restaurante.imageUrl; else noImage">
+        <img mat-card-image [src]="restaurante.imageUrl" [alt]="restaurante.nombreRestaurante" class="image-preview" />
+      </div>
+      <ng-template #noImage>
+        <img mat-card-image src="assets/default-image.jpg" [alt]="restaurante.nombreRestaurante" class="image-preview" />
+      </ng-template>
+
+      <mat-card-content *ngIf="restaurante.descripcion && restaurante.calificacion && restaurante.costo && restaurante.categoria; else invalidData">
+        <p><strong>Descripción:</strong> {{ restaurante.descripcion }}</p>
+        <p><strong>Calificación:</strong> {{ restaurante.calificacion }} estrellas</p>
+        <p><strong>Costo:</strong> {{ restaurante.costo | currency }}</p>
+        <p><strong>Categoría:</strong> {{ restaurante.categoria }}</p>
+      </mat-card-content>
+
+      <ng-template #invalidData>
+        <mat-card-content class="invalid-data">
+          <p>Datos no válidos o incompletos.</p>
+        </mat-card-content>
+      </ng-template>
+    </mat-card>
+  </div>
+</div>

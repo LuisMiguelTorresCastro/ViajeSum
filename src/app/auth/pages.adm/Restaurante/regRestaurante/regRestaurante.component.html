@@ -1,0 +1,48 @@
+<form [formGroup]="firstFormGroup" (ngSubmit)="openConfirmDialog()">
+  <ng-template matStepLabel>Información del Restaurante</ng-template>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre del Restaurante</mat-label>
+    <input matInput formControlName="nombreRestaurante" placeholder="Nombre del Restaurante" required>
+    <mat-error *ngIf="firstFormGroup.get('nombreRestaurante')?.hasError('required')">
+      El nombre del restaurante es requerido
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput formControlName="descripcion" placeholder="Descripción del Restaurante" rows="4" required></textarea>
+    <mat-error *ngIf="firstFormGroup.get('descripcion')?.hasError('required')">
+      La descripción es requerida
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Calificación</mat-label>
+    <input matInput formControlName="calificacion" placeholder="Calificación (opcional)">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Costo Promedio</mat-label>
+    <input matInput formControlName="costo" placeholder="Costo Promedio por Persona (opcional)">
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Categoría</mat-label>
+    <input matInput formControlName="categoria" placeholder="Categoría del Restaurante (ej. Familiar, Gourmet)" required>
+    <mat-error *ngIf="firstFormGroup.get('categoria')?.hasError('required')">
+      La categoría es requerida
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>URL de la Imagen</mat-label>
+    <input matInput formControlName="imageUrl" placeholder="URL de la imagen" required>
+    <mat-error *ngIf="firstFormGroup.get('imageUrl')?.hasError('required')">
+      La URL de la imagen es requerida
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Guardar Restaurante</button>
+</form>

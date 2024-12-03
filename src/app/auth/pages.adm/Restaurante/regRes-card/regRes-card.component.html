@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ restaurante.nombreRestaurante }}</mat-card-title>
+
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <div *ngIf="restaurante.imageUrl; else noImage">
+    <img mat-card-image [src]="restaurante.imageUrl" [alt]="restaurante.nombreRestaurante" class="image-preview">
+  </div>
+
+  <ng-template #noImage>
+    <img mat-card-image src="assets/default-image.jpg" [alt]="restaurante.nombreRestaurante" class="image-preview">
+  </ng-template>
+
+  <mat-card-content>
+    <p><strong>Descripcion:</strong> {{ restaurante.descripcion }}</p>
+    <p><strong>Calificación:</strong> {{ restaurante.calificacion }} estrellas</p>
+    <p><strong>Costo:</strong> {{ restaurante.costo | currency }}</p>
+    <p><strong>Categoría:</strong> {{ restaurante.categoria }}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <span class="spacer"></span>
+    <button mat-button mat-raised [routerLink]="['/restaurantes', restaurante.idRestaurante]">
+      <mat-icon>more_horiz</mat-icon>
+      Más
+    </button>
+  </mat-card-actions>
+</mat-card>

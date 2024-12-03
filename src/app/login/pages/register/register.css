@@ -1,0 +1,165 @@
+body {
+    font-family: 'Arial', sans-serif; /* Fuente */
+    background-color: #e0f7fa; /* Color de fondo */
+    margin: 0; /* Eliminar margen por defecto */
+    padding: 20px; /* Espaciado en el body */
+}
+
+.container {
+    max-width: 350px; /* Ancho máximo del contenedor */
+    margin: auto; /* Centrar contenedor */
+    padding: 40px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: white; /* Color de fondo del formulario */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
+}
+
+h1 {
+    text-align: center; /* Centrar título */
+    color: #007bff; /* Color del título */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+label {
+    display: block; /* Mostrar como bloque */
+    margin: 10px 0 5px; /* Margen para etiquetas */
+    font-weight: bold; /* Negrita en las etiquetas */
+    color: #555; /* Color de texto para etiquetas */
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] { /* Se añade input[type="text"] para dirección, ciudad, estado y código postal */
+    width: 94%; /* Ancho casi completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Espacio inferior */
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus { /* Enfoque para todos los campos de texto */
+    border-color: #007bff; /* Cambio de color al enfocar */
+    outline: none; /* Eliminar el contorno por defecto */
+}
+
+ul {
+    padding-left: 20px; /* Espaciado a la izquierda para la lista */
+    margin: 15px 0; /* Espacio alrededor de la lista */
+    color: #555; /* Color del texto de la lista */
+}
+
+.social-buttons {
+    display: flex; /* Usar flexbox para los botones sociales */
+    justify-content: space-between; /* Espaciado entre botones */
+    margin: 15px 0; /* Espacio alrededor de los botones */
+}
+
+button {
+    width: 100%; /* Ancho completo */
+    padding: 12px; /* Espaciado interno */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+}
+
+.social-buttons {
+    display: flex; /* Usar flexbox para los botones sociales */
+    justify-content: space-between; /* Espaciado entre botones */
+    margin-top: 10px; /* Margen superior */
+}
+
+.social-buttons button {
+    flex: 1; /* Ocupa espacio igual entre botones */
+    margin: 0 5px; /* Margen horizontal entre botones */
+    background-color: #f0f0f0; /* Fondo claro para botones sociales */
+    color: #333; /* Color del texto */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    display: flex; /* Usar flexbox dentro del botón */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+.social-buttons button:hover {
+    background-color: #e0e0e0; /* Color de fondo en hover para botones sociales */
+}
+
+.social-buttons img {
+    max-width: 20px; /* Ancho máximo para los logotipos sociales */
+    margin-right: 5px; /* Margen derecho entre logotipo y texto */
+}
+
+p {
+    text-align: center; /* Centrar texto */
+    margin: 10px 0; /* Espacio alrededor del párrafo */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Negrita */
+}
+
+.back-button {
+    margin-top: 15px; /* Espacio superior */
+    background-color: transparent; /* Fondo transparente */
+    color: #007bff; /* Color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar cursor */
+    text-decoration: underline; /* Subrayar texto */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+.back-button:hover {
+    color: #0056b3; /* Color al pasar el mouse */
+}
+.error-message {
+    color: #d9534f;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+  }
+  
+  /* Estilo para los mensajes de éxito */
+  .success-message {
+    color: #28a745;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+  }
+  
+  /* Estilo para los requisitos de contraseña */
+  .password-requirements {
+    list-style: none;
+    padding-left: 0;
+    color: #6c757d;
+    font-size: 14px;
+  }
+  
+  .password-requirements li {
+    margin-bottom: 5px;
+  }
+  
+  .password-requirements li::before {
+    content: "• ";
+    color: #6c757d;
+  }

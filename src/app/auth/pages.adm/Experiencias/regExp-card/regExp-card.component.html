@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ experiencias.nombreExperiencias }}</mat-card-title>
+    <mat-card-subtitle>{{ experiencias.descripcion }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <!-- Mostrar imagen desde URL -->
+  <div *ngIf="experiencias.imageUrl">
+    <img mat-card-image [src]="experiencias.imageUrl" [alt]="experiencias.nombreExperiencias" class="image-preview">
+  </div>
+
+  <mat-card-content>
+    <p><strong>Descripción:</strong> {{ experiencias.descripcion }}</p>
+    <p><strong>Categoría:</strong> {{ experiencias.categoria }}</p>
+    <p><strong>Costo:</strong> {{ experiencias.costo | currency }}</p>
+    <p><strong>Fechas:</strong> {{ experiencias.fechas }}</p>
+    <p><strong>Duración:</strong> {{ experiencias.duracion }}</p>
+    <p><strong>Dirección:</strong> {{ experiencias.direccion }}</p>
+    <p><strong>Correo:</strong> {{ experiencias.correo }}</p>
+    <p><strong>Teléfono:</strong> {{ experiencias.telefono }}</p>
+    <p><strong>Tipo:</strong> {{ experiencias.tipo }}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button [routerLink]="['/Experiencia', experiencias.idExp]">
+      <mat-icon>more_horiz</mat-icon>
+      Más
+    </button>
+  </mat-card-actions>
+</mat-card>

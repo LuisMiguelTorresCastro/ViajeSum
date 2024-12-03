@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="inicio.component.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Formulario de búsqueda -->
+        <div class="search-section">
+            <div class="card">
+                <div class="card-header">¿A dónde quieres ir?</div>
+                <div class="card-content">
+                    <span class="icon">📍</span>
+                    <select name="destination" id="destination">
+                        <option value="sydney">Sydney Harbour Marriott Hotel</option>
+                        <option value="new-york">New York City</option>
+                        <option value="paris">Paris</option>
+                        <!-- Agrega más opciones según sea necesario -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Fechas</div>
+                <div class="card-content">
+                    <span class="icon">🗓️</span>
+                    <input type="date" id="start-date" name="start-date">
+                    <span> a </span>
+                    <input type="date" id="end-date" name="end-date">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Personas</div>
+                <div class="card-content">
+                    <span class="icon">👤</span>
+                    <input type="number" id="guests" name="guests" min="1" placeholder="Número de personas">
+                </div>
+            </div>
+
+            <button class="button">
+                <mat-icon>search</mat-icon>
+              </button> 
+            </div>      
+            <div class="map-packages-container">
+                <mat-card class="map-card">
+                    <mat-card-content class="card-content">
+                        <!-- Mapa en tamaño pequeño -->
+                        <div id="map" class="map-card"></div>
+                        <div><iframe
+                            src="https://www.chatbase.co/chatbot-iframe/1WgsQoZ2bdzaNxcTEugwm"
+                            width="100%"
+                            style="height: 100%; min-height: 400px"
+                            frameborder="0"
+                            ></iframe></div>
+                            <div class="buscador-container">
+                                <h1>Buscador con Google Custom Search</h1>
+                                <input type="text" [(ngModel)]="query" placeholder="Escribe tu búsqueda" />
+                                <button (click)="performSearch()">Buscar</button>
+                                
+                                <div *ngIf="results.length > 0">
+                                  <div *ngFor="let item of results" class="result-item">
+                                    <h3><a [href]="item.link" target="_blank">{{ item.title }}</a></h3>
+                                    <p>{{ item.snippet }}</p>
+                                  </div>
+                                </div>
+                              
+                                <p *ngIf="results.length === 0 && searchPerformed" class="no-results">
+                                  No se encontraron resultados.
+                                </p>
+                              </div>
+                    </mat-card-content>
+                </mat-card>
+            
+                <mat-card-content class="card-content">
+                    <div class="card-grid">
+                      <div *ngFor="let paquete of paquetes" class="card-item">
+                        <mat-card class="paquete-card" (click)="viewPaqueteDetails(paquete.idPaquete)">
+                          <div class="image-container">
+                            <div *ngIf="paquete.imageUrl; else noImage">
+                              <img mat-card-image [src]="paquete.imageUrl" [alt]="paquete.imageUrl" class="image-preview">
+                            </div>
+                            <ng-template #noImage>
+                              <img mat-card-image src="assets/default-image.jpg" [alt]="paquete.nombrePaquete" class="image-preview">
+                            </ng-template>
+                          </div>
+                          <div class="card-content">
+                            <mat-card-header class="card-header">
+                              <mat-card-title>{{ paquete.nombrePaquete }}</mat-card-title>
+                            </mat-card-header>
+                            <p><strong>Descripción:</strong> {{ paquete.descripcion }}</p>
+                            <p><strong>Categoría:</strong> {{ paquete.categoria }}</p>
+                            <p><strong>Costo:</strong> {{ paquete.costo | currency }}</p>
+                            <p><strong>Tipo:</strong> {{ paquete.tipo }}</p>
+                          </div>
+                        </mat-card>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                  
+            </div>
+                       
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Leaflet JS -->
+    <script src="/ViajeSum-main/src/app/viaje-sum/pages/inicio/script.js"></script>
+</body>
+</html>

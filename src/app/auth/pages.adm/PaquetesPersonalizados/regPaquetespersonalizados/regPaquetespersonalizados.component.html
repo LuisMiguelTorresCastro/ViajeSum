@@ -1,0 +1,44 @@
+<form [formGroup]="firstFormGroup" (ngSubmit)="saveStep1()">
+  <ng-template matStepLabel>Información Básica</ng-template>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre del Paquete</mat-label>
+    <input matInput formControlName="nomPaqPer" placeholder="Nombre del Paquete" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descripción del Paquete</mat-label>
+    <textarea matInput formControlName="desPaqPer" placeholder="Descripción del Paquete" rows="4"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Precio</mat-label>
+    <input matInput formControlName="prePaqPer" placeholder="Precio" type="number">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Fecha de Creación</mat-label>
+    <input matInput formControlName="fecCre" placeholder="Fecha de Creación" type="datetime-local">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Seleccionar método de imagen</mat-label>
+    <mat-select (selectionChange)="onImageMethodChange($event.value)">
+      <mat-option value="file">Subir imagen desde archivo</mat-option>
+      <mat-option value="url">Agregar imagen por URL</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngIf="imageMethod === 'file'">
+    <input type="file" (change)="onFileSelected($event)" accept="image/jpeg, image/png">
+  </div>
+
+  <div *ngIf="imageMethod === 'url'">
+    <mat-form-field appearance="fill">
+      <mat-label>URL de la Imagen</mat-label>
+      <input matInput formControlName="imageUrl" placeholder="URL de la imagen">
+    </mat-form-field>
+  </div>
+
+  <button mat-button type="submit">Guardar Paquete</button>
+</form>

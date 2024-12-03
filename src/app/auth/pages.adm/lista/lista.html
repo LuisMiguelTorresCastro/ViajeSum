@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>Listados de Datos</h1>
+  
+    <div class="section">
+      <h2>Agencias</h2>
+      <ul>
+        <li *ngFor="let agencia of agencias">
+          {{ agencia.nombreAgencia }} - {{ agencia.descripcion }}
+        </li>
+        <li *ngIf="agencias.length === 0">No se encontraron agencias.</li>
+      </ul>
+    </div>
+  
+    <div class="section">
+      <h2>Experiencias</h2>
+      <ul>
+        <li *ngFor="let experiencia of experiencias">
+          {{ experiencia.nombreExperiencias }} - {{ experiencia.descripcion }}
+        </li>
+        <li *ngIf="experiencias.length === 0">No se encontraron experiencias.</li>
+      </ul>
+    </div>
+  
+    <div class="section">
+      <h2>Hoteles</h2>
+      <ul>
+        <li *ngFor="let hotel of hoteles">
+          {{ hotel.nombreHotel }} - {{ hotel.descripcion }}
+        </li>
+        <li *ngIf="hoteles.length === 0">No se encontraron hoteles.</li>
+      </ul>
+    </div>
+  
+    <div class="section">
+      <h2>Restaurantes</h2>
+      <ul>
+        <li *ngFor="let restaurante of restaurantes">
+          {{ restaurante.nombreRestaurante }} - {{ restaurante.descripcion }}
+        </li>
+        <li *ngIf="restaurantes.length === 0">No se encontraron restaurantes.</li>
+      </ul>
+    </div>
+  
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+  

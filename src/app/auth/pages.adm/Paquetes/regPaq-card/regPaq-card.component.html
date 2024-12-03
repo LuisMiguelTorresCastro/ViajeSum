@@ -1,0 +1,26 @@
+<mat-card *ngIf="paquete"> <!-- Asegúrate de que 'paquete' no sea nulo -->
+  <mat-card-header>
+    <mat-card-title>{{ paquete.nombrePaquete }}</mat-card-title> <!-- Muestra el nombre del paquete -->
+    <mat-card-subtitle>{{ paquete.descripcion }}</mat-card-subtitle> <!-- Muestra la descripción del paquete -->
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <div *ngIf="paquete.imageUrl; else noImage">
+    <img mat-card-image [src]="paquete.imageUrl" [alt]="paquete.nombrePaquete" class="image-preview"> <!-- Muestra la imagen del paquete -->
+  </div>
+  <ng-template #noImage>
+    <img mat-card-image src="assets/default-image.jpg" [alt]="paquete.nombrePaquete" class="image-preview"> <!-- Imagen por defecto -->
+  </ng-template>
+  <mat-card-content>
+    <p><strong>Categoría:</strong> {{ paquete.categoria }}</p> <!-- Muestra la categoría del paquete -->
+    <p><strong>Costo:</strong> {{ paquete.costo | currency }}</p> <!-- Muestra el costo del paquete, formateado como moneda -->
+    <p><strong>Fechas:</strong> {{ paquete.fechas | date:'shortDate' }}</p> <!-- Muestra las fechas del paquete -->
+    <p><strong>Tipo:</strong> {{ paquete.tipo }}</p> <!-- Muestra el tipo del paquete -->
+  </mat-card-content>
+  <mat-card-actions>
+    <span class="spacer"></span>
+    <button mat-button mat-raised [routerLink]="['/paquetes', paquete.idPaquete]"> <!-- Enlace al detalle del paquete -->
+      <mat-icon>more_horiz</mat-icon>
+      Más
+    </button>
+  </mat-card-actions>
+</mat-card>

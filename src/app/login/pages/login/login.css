@@ -1,0 +1,128 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif; /* Tipografía general */
+    display: flex; /* Usar flexbox para el diseño */
+    flex-direction: column; /* Disposición en columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+    padding: 20px; /* Espacio interior alrededor del contenido */
+    margin: 0; /* Eliminar márgenes por defecto */
+    background-color: #f4f4f4; /* Color de fondo suave */
+}
+
+/* Header Styles */
+header {
+    text-align: center; /* Centrar texto en el encabezado */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+header h1 img {
+    max-width: 200px; /* Ancho máximo para el logo */
+    height: auto; /* Mantener proporciones del logo */
+}
+
+/* Main Styles */
+main {
+    width: 100%; /* Ancho completo */
+    max-width: 400px; /* Ancho máximo del contenedor principal */
+}
+
+.login-section {
+    background-color: #ffffff; /* Fondo blanco para la sección de login */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    padding: 20px; /* Espacio interior de la sección */
+}
+
+/* Headings */
+h2 {
+    font-size: 2rem; /* Tamaño grande para el subtítulo */
+    margin-bottom: 15px; /* Espacio inferior */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centrar el subtítulo */
+}
+
+/* Form Styles */
+form {
+    display: flex; /* Usar flexbox para el formulario */
+    flex-direction: column; /* Disposición en columna */
+    gap: 15px; /* Espacio entre elementos del formulario */
+}
+
+p {
+    margin: 0; /* Eliminar márgenes por defecto */
+    color: #555; /* Color del texto */
+}
+
+input[type="email"] {
+    padding: 12px; /* Espacio interior del campo de entrada */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente para el campo */
+}
+
+input[type="email"]:focus {
+    border-color: #007bff; /* Color de borde al enfocar */
+    outline: none; /* Eliminar contorno por defecto */
+}
+input[type="password"] {
+    padding: 12px; /* Espacio interior del campo de entrada */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente para el campo */
+}
+
+input[type="password"]:focus {
+    border-color: #007bff; /* Color de borde al enfocar */
+    outline: none; /* Eliminar contorno por defecto */
+}
+/* Button Styles */
+button {
+    padding: 12px; /* Espacio interior del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto en el botón */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente para el botón */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo en hover */
+}
+
+.social-buttons {
+    display: flex; /* Usar flexbox para los botones sociales */
+    justify-content: space-between; /* Espaciado entre botones */
+    margin-top: 10px; /* Margen superior */
+}
+
+.social-buttons button {
+    flex: 1; /* Ocupa espacio igual entre botones */
+    margin: 0 5px; /* Margen horizontal entre botones */
+    background-color: #f0f0f0; /* Fondo claro para botones sociales */
+    color: #333; /* Color del texto */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    display: flex; /* Usar flexbox dentro del botón */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+.social-buttons button:hover {
+    background-color: #e0e0e0; /* Color de fondo en hover para botones sociales */
+}
+
+.social-buttons img {
+    max-width: 20px; /* Ancho máximo para los logotipos sociales */
+    margin-right: 5px; /* Margen derecho entre logotipo y texto */
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 20px; /* Espacio superior para el footer */
+    text-align: center; /* Centrar texto en el footer */
+    color: #777; /* Color gris claro para el texto */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño para el footer */
+}

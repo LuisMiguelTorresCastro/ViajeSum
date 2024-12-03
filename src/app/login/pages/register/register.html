@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViajesSum - Registro</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+  <div class="container">
+    <form id="register-form" (ngSubmit)="onSubmit()" #registerForm="ngForm" method="POST">
+      <p>Crea una cuenta con tu email:</p>
+
+      <!-- Campo para Nombre -->
+      <label for="nombreUsuario">Nombre:</label>
+      <input type="text" id="nombreUsuario" [(ngModel)]="nombreUsuario" name="nombreUsuario" placeholder="Ingresa tu nombre" required aria-required="true">
+
+      <!-- Campo para Apellido -->
+      <label for="apellidoUsuario">Apellido:</label>
+      <input type="text" id="apellidoUsuario" [(ngModel)]="apellidoUsuario" name="apellidoUsuario" placeholder="Ingresa tu apellido" required aria-required="true">
+
+      <!-- Campo para Teléfono -->
+      <label for="telefonoUsuario">Teléfono:</label>
+      <input type="text" id="telefonoUsuario" [(ngModel)]="telefonoUsuario" name="telefonoUsuario" placeholder="Ingresa tu teléfono" required aria-required="true">
+
+      <!-- Campo para Correo Electrónico -->
+      <label for="correoUsuario">Correo Electrónico:</label>
+      <input type="email" id="correoUsuario" name="correoUsuario" placeholder="Ingresa tu correo electrónico" required aria-required="true" [(ngModel)]="correoUsuario">
+
+      <!-- Campo para Dirección -->
+      <label for="direccionUsuario">Dirección:</label>
+      <input type="text" id="direccionUsuario" [(ngModel)]="direccionUsuario" name="direccionUsuario" placeholder="Ingresa tu dirección" required aria-required="true">
+
+      <!-- Campo para Ciudad -->
+      <label for="ciudad">Ciudad:</label>
+      <input type="text" id="ciudad" [(ngModel)]="ciudad" name="ciudad" placeholder="Ingresa tu ciudad" required aria-required="true">
+
+      <!-- Campo para Estado -->
+      <label for="estado">Estado:</label>
+      <input type="text" id="estado" [(ngModel)]="estado" name="estado" placeholder="Ingresa tu estado" required aria-required="true">
+
+      <!-- Campo para Código Postal -->
+      <label for="codigoPostal">Código Postal:</label>
+      <input type="text" id="codigoPostal" [(ngModel)]="codigoPostal" name="codigoPostal" placeholder="Ingresa tu código postal" required aria-required="true">
+
+      <!-- Campo para Contraseña -->
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required aria-required="true" minlength="8" (input)="checkPassword()" pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])">
+
+      <!-- Campo para Confirmar Contraseña -->
+      <label for="confirmPassword">Confirmar Contraseña:</label>
+      <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required aria-required="true">
+
+      <!-- Requisitos de Contraseña -->
+      <ul *ngIf="!isPasswordValid" class="password-requirements">
+        <li>Al menos 8 caracteres</li>
+        <li>Al menos una letra mayúscula</li>
+        <li>Al menos un número</li>
+        <li>Al menos un símbolo</li>
+      </ul>
+
+      <!-- Mensajes de error y éxito -->
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+      <div class="social-buttons">
+        <button type="button" aria-label="Iniciar sesión con Google" (click)="loginWithGoogle()">
+          <img src="assets/images/icon.google.png" alt="Logo de Google"> Google
+        </button>
+        <button type="button" aria-label="Iniciar sesión con Facebook" (click)="loginWithFacebook()">
+          <img src="assets/images/icon.facebook.png" alt="Logo de Facebook"> Facebook
+        </button>
+      </div>
+
+      <button type="submit" class="register-button">Registrar</button>
+    </form>
+
+    <button class="back-button" routerLink="/Viajes/inicio">Volver a Iniciar sesión</button>
+  </div>
+</body>
+</html>

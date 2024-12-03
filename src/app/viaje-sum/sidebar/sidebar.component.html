@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>navbar</title>
+    <link rel="stylesheet" href="/sidebar.component.css" /> <!-- Corregido el enlace al CSS -->
+</head>
+<body class="is-preload left-sidebar">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <mat-toolbar color="primary">
+            <header id="header" class="container">
+                <div id="logo">
+                    <h1><a routerLink="/inicio">Viajes Sum</a></h1> 
+                </div>
+                <nav id="nav">
+                    <ul>
+                        <li class="current"><a routerLink="/Viajes/inicio">Inicio</a></li>
+                        <li><a routerLink="/Viajes/agencias">Agencias</a></li>
+                        <li><a routerLink="/Viajes/twitter">Twitter</a></li>
+                        <li><a routerLink="/Viajes/twitch">Twitch</a></li>
+                        <li><a routerLink="/Viajes/paquetes">Paquetes</a></li>
+                        <li><a routerLink="/Viajes/hoteles">Hoteles</a></li>
+                        <li><a routerLink="/Viajes/restaurantes">Restaurantes</a></li>
+                        <li>
+                            <div class="profile-circle" (click)="toggleMenu()">
+                                <img src="https://via.placeholder.com/150" alt="Imagen de perfil">
+                                <ul class="menu" *ngIf="isMenuVisible" (click)="closeMenu()">
+                                    <li *ngIf="!isAuthenticated()"><a routerLink="/Login/login">Inicio de sesión</a></li>
+                                    <li *ngIf="!isAuthenticated()"><a routerLink="/Login/register">Registro</a></li>
+                                    <li *ngIf="isAuthenticated()"><a routerLink="/Viajes/perfil">Perfil</a></li>
+                                    <li *ngIf="isAuthenticated()"><a (click)="logout()">Cerrar sesión</a></li>                                
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </mat-toolbar>
+        
+        <div class="content">
+            <router-outlet></router-outlet> <!-- Aquí se renderizan las rutas hijas -->
+        </div>
+        
+        <!-- Footer -->
+        <div id="footer-wrapper">
+            <footer id="footer" class="container">
+                <div class="row">
+                    <div>
+                        <section class="widget links">
+                            <h3>Random Stuff</h3>
+                            <ul class="style2">
+                                <li><a href="#">Etiam feugiat condimentum</a></li>
+                                <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+                                <li><a href="#">Sed porttitor cras in erat nec</a></li>
+                                <li><a href="#">Felis varius pellentesque potenti</a></li>
+                                <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div>
+                        <section class="widget links">
+                            <h3>Random Stuff</h3>
+                            <ul class="style2">
+                                <li><a href="#">Etiam feugiat condimentum</a></li>
+                                <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+                                <li><a href="#">Sed porttitor cras in erat nec</a></li>
+                                <li><a href="#">Felis varius pellentesque potenti</a></li>
+                                <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div>
+                        <section class="widget links">
+                            <h3>Random Stuff</h3>
+                            <ul class="style2">
+                                <li><a href="#">Etiam feugiat condimentum</a></li>
+                                <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+                                <li><a href="#">Sed porttitor cras in erat nec</a></li>
+                                <li><a href="#">Felis varius pellentesque potenti</a></li>
+                                <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div>
+                        <section class="widget contact">
+                            <h3>Contact Us</h3>
+                            <ul>
+                                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li>Teléfono: +52 418 106 09 17</li>
+                                <li>Email: ltcm020705&#64;gmail.com</li>
+                            </ul>                
+                        </section>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

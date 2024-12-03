@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ paquetePersonalizado.nomPaqPer }}</mat-card-title>
+    <mat-card-subtitle>{{ paquetePersonalizado.desPaqPer }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  
+  <!-- Mostrar imagen desde URL o archivo cargado -->
+  <div *ngIf="paquetePersonalizado.imageUrl; else fileImage">
+    <img [src]="paquetePersonalizado.imageUrl" alt="{{ paquetePersonalizado.nomPaqPer }}" class="image-preview">
+  </div>
+  <ng-template #fileImage>
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="{{ paquetePersonalizado.nomPaqPer }}" class="image-preview">
+  </ng-template>
+
+  <mat-card-actions>
+    <span class="spacer"></span>
+    <button mat-button mat-raised [routerLink]="['/paquetespersonalizados', paquetePersonalizado.idPaqPer]">
+      <mat-icon>more_horiz</mat-icon>
+      Más
+    </button>
+  </mat-card-actions>
+</mat-card>

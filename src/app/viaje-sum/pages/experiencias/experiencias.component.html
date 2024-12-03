@@ -1,0 +1,32 @@
+<h1>Experiencias</h1>
+<mat-divider></mat-divider>
+
+<div class="card-grid">
+  <div *ngFor="let experiencia of experiencias" class="card-item">
+    <mat-card class="experiencia-card">
+      <mat-card-header class="card-header">
+        <mat-card-title>{{ experiencia.nombreExperiencias }}</mat-card-title>
+      </mat-card-header>
+
+      <div *ngIf="experiencia.imageUrl; else noImage">
+        <img mat-card-image [src]="experiencia.imageUrl" [alt]="experiencia.nombreExperiencias" class="image-preview">
+      </div>
+      <ng-template #noImage>
+        <img mat-card-image src="assets/default-image.jpg" [alt]="experiencia.nombreExperiencias" class="image-preview">
+      </ng-template>
+
+      <mat-card-content class="card-content">
+        <p><strong>Descripción:</strong> {{ experiencia.descripcion }}</p>
+        <p><strong>Categoría:</strong> {{ experiencia.categoria }}</p>
+        <p><strong>Costo:</strong> {{ experiencia.costo | currency }}</p>
+        <p><strong>Fechas:</strong> {{ experiencia.fechas }}</p>
+        <p><strong>Duración:</strong> {{ experiencia.duracion }}</p>
+        <p><strong>Dirección:</strong> {{ experiencia.direccion }}</p>
+        <p><strong>Correo:</strong> {{ experiencia.correo }}</p>
+        <p><strong>Teléfono:</strong> {{ experiencia.telefono }}</p>
+        <p><strong>Tipo:</strong> {{ experiencia.tipo }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
